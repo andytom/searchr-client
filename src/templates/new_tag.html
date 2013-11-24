@@ -1,0 +1,13 @@
+<form>
+  <legend>Add a New Tag</legend>
+  <div class="form-group">
+    <label>Title</label>
+    <input type="text" class="form-control" name=name ng-model="tag.title" >
+  </div>
+
+  <div class="form-group">
+    <label>Description</label>
+    <textarea type="text" class="form-control" name=name ng-model="tag.description" ></textarea>
+  </div>
+  <button ng-click="add()" class="btn btn-primary">Save</button> 
+</form>

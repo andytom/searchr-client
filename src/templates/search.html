@@ -1,0 +1,50 @@
+<form class="form-inline" role="form"> 
+<input type="search" ng-model="currentData.query" class="form-control" placeholder="Query" autocomplete="off" />
+<div class="checkbox">
+  <label>
+    <input type="checkbox" value=1 ng-model="currentData.reverse"> Reverse
+  </label>
+</div>
+</form>
+<hr ng-show="currentData.query" />
+<dl class="dl-horizontal">
+  <dt ng-show="currentData.query">Query</dt>
+  <dd ng-show="currentData.query">{{ currentData.query }}</dd>
+
+  <dt ng-show="results.query">Parsed Query</dt>
+  <dd ng-show="results.query">{{ results.query }}</dd>
+
+  <dt ng-show="results.meta">Number of Results</dt>
+  <dd ng-show="results.meta">{{ results.meta.total }}</dd>
+
+  <dt ng-show="results.meta.page">Pagination</dt>
+  <dd ng-show="results.meta.page">{{ results.meta.page }} of {{results.meta.pages}}</dd>
+</dl>
+
+<span ng-show="results.hits">
+  <hr />
+
+  <!-- TODO - Write a Directive for pager/pagination -->
+  <ul ng-show="results.meta.pages > 1" class="pager">
+    <li class="previous ng-class:{disabled: ! hasPrev()}"><a href="" ng-click="prevPage()">Previous</a></li>
+    <li class="next ng-class:{disabled: !hasNext()}"><a href="" ng-click="nextPage()">Next</a></li>
+  </ul>
+
+  <div class="panel panel-default" ng-repeat="hit in results.hits">
+    <div class="panel-heading">
+      <b>{{ hit.id }}</b> <a href="#/{{ type }}/{{ hit.id }}">{{ hit.title }}</a>
+    </div>
+    <div class="panel-body">
+      <p ng-bind-html-unsafe="hit.snippet"></p>
+      <hr ng-show="hit.snippet" />
+      <dl class="dl-horizontal">
+        <dt>Score</dt>
+        <dd>{{ hit.score }}</dd>
+
+        <dt>Rank</dt>
+        <!-- hit.rank starts at 0 we want to start at 1 -->
+        <dd>{{ hit.rank + 1 }}</dd>
+      </dl>
+    </div>
+  </div>
+</span>

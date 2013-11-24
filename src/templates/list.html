@@ -1,0 +1,5 @@
+<h2>{{ type }}</h2>
+<input type="search" ng-model="filter" class="form-control" placeholder="Filter">
+<div class="list-group" ng-repeat="res in results.results | filter:{title:filter}">
+  <a href="#/{{ type }}/{{ res.id }}"><h4>{{ res.title }}</h4></a>
+</div>

@@ -1,0 +1,30 @@
+<dl class="dl-horizontal">
+    <dt>Title</dt>
+    <dd>{{ doc.title }}</dd>
+
+    <dt>ID</dt>
+    <dd>{{ doc.id }}</dd>
+
+    <dt>Text</dt>
+    <dd>{{ doc.text }}</dd>
+
+    <dt>Created Date</dt>
+    <dd>{{ doc.created }}</dd>
+
+    <dt>Updated Date</dt>
+    <dd>{{ doc.updated }}</dd>
+
+    <dt>Deleted</dt>
+    <dd>{{ doc.deleted }}</dd>
+
+    <dt>Tags</dt>
+    <dd>
+        <ul class="list-inline">
+            <li ng-repeat="tag in doc.tags">
+            <a href="#/tag/{{ tag.id }}">
+            <span class="label label-primary">{{ tag.title }}</span>
+            </a>
+            </li>
+        </ul>
+    </dd>
+</dl>
