@@ -10,6 +10,9 @@ angular.module('myApp.services', []).
   .factory( 'DocumentService', ['$resource', function($resource){
     return $resource('/api/v1.0/document/:id', {id: '@id'});
   }])
+  .factory( 'DocumentMLTService', ['$resource', function($resource){
+    return $resource('/api/v1.0/document/:id/mlt', {id: '@id'});
+  }])
   .factory( 'SearchService', ['$resource', function($resource){
     var resource = $resource('/api/v1.0/document/search');
     // Set the defaults for the cached search settings

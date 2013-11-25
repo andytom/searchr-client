@@ -1,0 +1,53 @@
+<form class="form-inline" role="form"> 
+
+<dl class="dl-horizontal">
+    <dt>Title</dt>
+    <dd>{{ doc.title }}</dd>
+
+    <dt>ID</dt>
+    <dd>{{ doc.id }}</dd>
+
+    <dt>Text</dt>
+    <dd>{{ doc.text }}</dd>
+
+    <dt>Created Date</dt>
+    <dd>{{ doc.created }}</dd>
+
+    <dt>Updated Date</dt>
+    <dd>{{ doc.updated }}</dd>
+
+    <dt>Deleted</dt>
+    <dd>{{ doc.deleted }}</dd>
+
+    <dt>Tags</dt>
+    <dd>
+        <ul class="list-inline">
+            <li ng-repeat="tag in doc.tags">
+            <a href="#/tag/{{ tag.id }}">
+            <span class="label label-primary">{{ tag.title }}</span>
+            </a>
+            </li>
+        </ul>
+    </dd>
+</dl>
+
+
+<span ng-show="results.hits">
+  <hr />
+
+  <div class="panel panel-default" ng-repeat="hit in results.hits">
+    <div class="panel-heading">
+      <b>{{ hit.id }}</b> <a href="#/{{ type }}/{{ hit.id }}">{{ hit.title }}</a>
+    </div>
+    <div class="panel-body">
+      <dl class="dl-horizontal">
+        <dt>Score</dt>
+        <dd>{{ hit.score }}</dd>
+
+        <dt>Rank</dt>
+        <!-- hit.rank starts at 0 we want to start at 1 -->
+        <dd>{{ hit.rank + 1 }}</dd>
+      </dl>
+    </div>
+  </div>
+</span>

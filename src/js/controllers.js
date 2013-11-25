@@ -14,6 +14,10 @@ angular.module('myApp.controllers', []).
   .controller('DocumentCtrl', ['$scope', '$routeParams', 'DocumentService', function($scope, $routeParams, DocumentService) {
     $scope.doc = DocumentService.get({id:$routeParams.id});
   }])
+  .controller('DocumentMLTCtrl', ['$scope', '$routeParams', 'DocumentMLTService', 'DocumentService', function($scope, $routeParams, DocumentMLTService, DocumentService) {
+    $scope.doc = DocumentService.get({id:$routeParams.id});
+    $scope.results = DocumentMLTService.get({id:$routeParams.id});
+  }])
   .controller('DocumentAddCtrl', ['$scope','$location', 'DocumentService', function($scope, $location, DocumentService) {
     $scope.add = function(){
       DocumentService.save($scope.doc);

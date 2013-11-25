@@ -18,6 +18,10 @@ angular.module("myApp", ['ngResource', 'myApp.services', 'myApp.controllers'])
     templateUrl: '/static/templates/new_document.html',
     controller: 'DocumentAddCtrl'
   });
+  $routeProvider.when('/document/:id/mlt', {
+    templateUrl: '/static/templates/document_mlt.html',
+    controller: 'DocumentMLTCtrl'
+  });
   $routeProvider.when('/document/:id', {
     templateUrl: '/static/templates/document.html',
     controller: 'DocumentCtrl'
