@@ -4,3 +4,4 @@ Searchr-client is an Angular js client for [Searchr](https://github.com/Andytom/
 ## To do
 * Write README
 * Write tests
+* Replace duplication in template with directives
